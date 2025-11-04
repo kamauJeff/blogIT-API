@@ -23,9 +23,27 @@ model User {
   password String @map("Password")
   isDeleted Boolean @map("IsDeleted") @default(false)
   dateJoined DateTime @map("DateJoined") @default(now())
+  tasks Blog[]
 
 
   @@map("Users")
+}
+
+model Blog {
+  id String @id @map("BlogID") @default(uuid())
+  blogTittle String @map("BlogTitle")
+  synopsis String @map("Synopsis")
+  featuredImageUrl String @map("FeaturedImageUrl")
+  content String @map("Content")
+  isDeleted Boolean @default(false) @map("IsDeleted")
+  isCompleted Boolean @default(false) @map("IsCompleted")
+  createdAt DateTime @default(now()) @map("CreatedAt")
+  lastUpdated DateTime @updatedAt @map("LastUpdated")
+  userId String @map("UserID")
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("Blogs")
+
 }
 
 

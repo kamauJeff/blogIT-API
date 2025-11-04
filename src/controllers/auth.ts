@@ -64,7 +64,7 @@ export const login = async function(req:Request, res: Response) {
 
         //generate cookie and send it as a token to the client
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {expiresIn: `10d`});
+    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY!, {expiresIn: `10d`});
     res.status(200).cookie("authToken", token).json(payload);
     } catch (error) {
         res.status(500).json({message: "Something went wrong"})
