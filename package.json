@@ -27,6 +27,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "prettier": "^3.6.2",
     "zxcvbn": "^4.4.2"
   }
 }
